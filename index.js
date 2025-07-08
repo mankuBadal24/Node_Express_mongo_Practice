@@ -18,5 +18,8 @@ const server = http.createServer((req,res)=>{
     if(req.url == "/about"){
         res.end("about page")
     }
+    if(req.url == "/contact"){
+        res.end("contact page")
+    }
 })
 server.listen(8000)
