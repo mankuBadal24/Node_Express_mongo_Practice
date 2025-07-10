@@ -1,5 +1,5 @@
 const express = require('express')
-
+const morgan = require('morgan')
 const app = express()
 
 
@@ -13,19 +13,26 @@ const app = express()
 //     res.send("about")
 // })
 
-
+app.use(morgan('dev'))
 // now using express js to render html page in routes
 app.set("view engine",'ejs')
 
 
-// middlewares = = 
-app.use((req,res,next)=>{
-    console.log(" this is middleware ");
-    return next()
-})
+// custom middlewares = = 
+// app.use((req,res,next)=>{
+//     console.log(" this is middleware ");
+//     return next()
+// })
 
+// third party middleware
 
-app.get('/',(req,res)=>{
+app.get('/',(req,res,next)=>{
+    const a= 8;
+    const b= 5;
+    console.log(a+b);
+    next()
+
+},(req,res)=>{
     res.render("index")
 })
 
