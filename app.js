@@ -18,6 +18,7 @@ app.use(morgan('dev'))
 app.set("view engine",'ejs')
 
 
+
 // custom middlewares = = 
 // app.use((req,res,next)=>{
 //     console.log(" this is middleware ");
