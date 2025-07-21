@@ -1,7 +1,8 @@
 const express = require('express')
 const morgan = require('morgan')
+const path = require('path');
 const app = express()
-
+app.use(express.static((path.join(__dirname,'public'))));
 
 // routes using expresss
 //FUN FACT == behind the scene express also uses http 😂
@@ -32,13 +33,12 @@ app.get('/',(req,res,next)=>{
     const b= 5;
     console.log(a+b);
     next()
-
 },(req,res)=>{
-    res.render("index")
+    res.render("index");
 })
 
 app.get('/about',(req,res)=>{
-    res.send("about")
+    res.send("about");
 })
 
-app.listen(3000)
+app.listen(3000);
